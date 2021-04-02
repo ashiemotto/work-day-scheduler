@@ -2,11 +2,12 @@
 var today = moment();
 $("#currentDay").text(today.format("MMMM Do, YYYY"));
 
+// set time of day
 var userTime = moment();
 userTime = userTime.startOf('hour');
-
+// set day time to 9am
 var workDay = moment().startOf('day').add(9,'hours');
-
+// add times to boxes
 var datainput= $('.form-control')
 // 9 am
 
@@ -65,7 +66,7 @@ $('.5pm').text(ninthBox);
 console.log(secondBox)
 
 function ppf (){
-
+// create function to set styling 
     console.log(userTime)
 time1 = moment().startOf('day').add(9, "h");
 if (time1.isAfter(userTime)){
@@ -159,7 +160,7 @@ else {
 };
 }
 ppf(); 
-
+ // crate loop to set vales to proper boxes
 var x = [9,10,11,12,1,2,3,4,5]
  for (var i = 0; i < x.length; i++) {
     var dataHour = localStorage.getItem(x[i]);
@@ -167,7 +168,7 @@ var x = [9,10,11,12,1,2,3,4,5]
     $(".box" + x[i]).val(dataHour);}
     console.log ()
 
-    $(".saveBtn").click(function () {
+    $(".saveBtn").click(function (event) {
        event.preventDefault()
         var inputText = datainput.val();
         var time = $(this).parent().data('hour');
